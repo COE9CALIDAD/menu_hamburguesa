@@ -1,0 +1,131 @@
+/********* Reset CSS *************/
+/*variables*/
+:root { 
+    --main-font: sans-serif;
+    --font-size: 16px;
+    --main-color: #f7df1e;
+    --second-color: #222;
+    --main-modal-color: rgba(247, 222, 30, 0.85);
+    --second-modal-color: rgba(34,34,34,0.85);
+    --container-width: 1200px;
+}
+
+/*reseteo básico*/
+html {
+    box-sizing: border-box;
+    font-family: var(--main-font);
+    font-size: var(--font-size);
+    scroll-behavior: smooth; /*esto es para que se vea suavecito cuadno se scrollea*/
+}
+
+/*esto es para que se herede el boxsizing*/
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+/*Aqui se va a eliminar el margin que viene por defecto, y tambien se va retirar la barra lateral si un elemento resulta más ancho que la pantalla*/
+body {
+    margin: 0;
+    overflow-x: hidden; /*este es el overflow que decia*/
+}
+
+/*las imágenes tendran la máxima anchura de su contenedor*/
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/**********menu-hamburguesa*****************/
+.header {
+    position: sticky; /*esto va a dejar fijo el header?Sisas*/
+    top: 0; /*con apoyo de este*/
+    padding: 1rem;
+    background-color: var(--main-color);
+    color: var(--second-color);
+}
+
+/*resetea los estilos defult de la etiqueta h1*/
+.header h1 {
+    margin: 0 auto;
+    text-align: center;
+}
+
+/*esto es dentro del main, cada sección del main ocupará toda la pantalla, y asi se generará un scroll entre estas¿?*/
+.section {
+    padding: 2rem;
+    padding-top: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: var(--container-width);
+    min-height: 100vh;
+    text-align: center;
+}
+
+/*estos son los estilos del panel cuando se despliega*/
+.panel {
+    position: fixed;
+    z-index: 998; /*para que quede debajo del botocnito*/
+    top: 0; /*esto va a estirar la seccion en toda la pantalla*/
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: var(--second-modal-color);
+    /*Aqui definimos por donde va a aparecer*/
+    /*De Arriba*/
+    transform: translate(0, -100%); /*el negativo indica hacia arriba en la web(?), esto ocultará completamente*/
+    transition: transform 0.3s ease; /*esto hará que se tarde un poco en la transcición y que no aparezca inmediatly*/
+}
+
+/*esto es para que al agregar "is-active" a la clase "panel" se vuelva a mostrar en pantalla*/
+.panel.is-active {
+    transform: translate(0,0); /*Saldrá de arriba porque de -100 pasa a 0*/
+}
+/*La magia es que con JS vamos a agregar "as-active" a la clase "panel" al hacer clic sobre el botón del menú*/
+
+/*Estilos del botoncito*/
+.panel_btn {
+    position: fixed;
+    z-index: 999; /*esto es para que siempre se vea por encima de todo*/
+    bottom: 1vh;
+    right: 1vw;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%; /*esto hace que sea redondo*/
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color); /*el color no se ve, seguramente es porque cambio al ndj? De dodne se cana los estilos hamburguesa pues*/
+}
+
+/*Estilos del menu (que se despliega al hacer clic en el botoncito*/
+.menu {
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+.menu a {
+    padding: 2rem;
+    width: inherit;
+    display: block;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--main-color);
+    transition: all 0.3s ease;
+}
+
+/*pseaudoclase para cuando posicione el mouse sobre estas*/
+.menu a:hover {
+    font-weight: bold;
+    color: var(--second-color);
+    background-color: var(--main-modal-color);
+}
+
