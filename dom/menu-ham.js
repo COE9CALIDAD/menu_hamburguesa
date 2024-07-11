@@ -3,7 +3,7 @@ export default function hamburgerMenu(panelBtn, panel) {
     const d = document; /*Esto es para simplificar todo el dominio del dom, que siempre inicia con document.*/
 
     d.addEventListener("click", (e) => {
-        if(e.target.matches(panelBtn)){
+        if(e.target.matches(panelBtn) || e.target.matches(`${panelBtn} *`)){
             d.querySelector(panel).classList.toggle("is-active");
         }
     });

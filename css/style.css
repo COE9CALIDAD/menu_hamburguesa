@@ -86,6 +86,8 @@ img {
 }
 /*La magia es que con JS vamos a agregar "as-active" a la clase "panel" al hacer clic sobre el botón del menú*/
 
+/*Al hacer la prueba, resulto que no funcionaba si se hacia clci sobre las lineas, asi que lo haremos funcional en todo el boton*/
+
 /*Estilos del botoncito*/
 .panel_btn {
     position: fixed;
