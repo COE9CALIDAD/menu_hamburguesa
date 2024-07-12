@@ -6,12 +6,15 @@ export default function hamburgerMenu(panelBtn, panel, menuLink) {
         if(e.target.matches(panelBtn) || e.target.matches(`${panelBtn} *`)){
             d.querySelector(panel).classList.toggle("is-active");
             d.querySelector(panelBtn).classList.toggle("is-active"); /*Esto es para que también se "anime" la botón, al igual que para apareerlo solo se pone is-active*/
+            console.log("Se hizo clic");
         }
         /*Esto es para que se retire el menú cuando hagamos clic en otro lado o en els vinculos*/
         if(e.target.matches(menuLink)){
             d.querySelector(panel).classList.remove("is-active");
-            d.querySelector(panelBtn).classList.remove("is-active"); /*Esto es para que también se "anime" la botón, al igual que para apareerlo solo se pone is-active*/
+            d.querySelector(panelBtn).classList.remove("is-active");
+            console.log("Se hizo clic");
         }
+        
     });
 }
 
